@@ -1,0 +1,30 @@
+Build started at 2019-01-31T00:35:06.059596
+Main binary: /usr/local/opt/python/bin/python3.7
+Python system: Darwin
+The Meson build system
+Version: 0.49.1
+Source dir: /Users/salomonmay/Desktop/vala_test
+Build dir: /Users/salomonmay/Desktop/vala_test/build
+Build type: native build
+Project name: com.github.sollymay.jarvis
+Project version: undefined
+Native C compiler: cc (clang 10.0.0 "Apple LLVM version 10.0.0 (clang-1000.11.45.5)")
+Native Vala compiler: valac (valac 0.42.5)
+Build machine cpu family: x86_64
+Build machine cpu: x86_64
+Dependency gtk+-3.0 found: YES (cached)
+Program meson/post_install.py found: YES (/usr/bin/env python3 /Users/salomonmay/Desktop/vala_test/meson/post_install.py)
+Build targets in project: 1
+Found ninja-1.8.2 at /usr/local/bin/ninja
+Running compile:
+Working directory:  /var/folders/rp/n452jxhs3k1gw92324f7ygnc0000gn/T/tmp44vnnb2o
+Command line:  cc -I/usr/local/opt/icu4c/include /var/folders/rp/n452jxhs3k1gw92324f7ygnc0000gn/T/tmp44vnnb2o/testfile.c -pipe -c -o /var/folders/rp/n452jxhs3k1gw92324f7ygnc0000gn/T/tmp44vnnb2o/output.obj -O0 --print-search-dirs 
+
+Code:
+ 
+Compiler stdout:
+ programs: =/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+libraries: =/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0
+
+Compiler stderr:
+ 
