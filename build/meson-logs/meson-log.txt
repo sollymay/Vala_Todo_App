@@ -1,30 +1,31 @@
-Build started at 2019-01-31T00:35:06.059596
-Main binary: /usr/local/opt/python/bin/python3.7
-Python system: Darwin
+Build started at 2019-02-02T13:31:14.704728
+Main binary: /usr/bin/python3
+Python system: Linux
 The Meson build system
-Version: 0.49.1
-Source dir: /Users/salomonmay/Desktop/vala_test
-Build dir: /Users/salomonmay/Desktop/vala_test/build
+Version: 0.48.2
+Source dir: /home/salomonmay/Documents/Vala_Todo_App
+Build dir: /home/salomonmay/Documents/Vala_Todo_App/build
 Build type: native build
 Project name: com.github.sollymay.jarvis
 Project version: undefined
-Native C compiler: cc (clang 10.0.0 "Apple LLVM version 10.0.0 (clang-1000.11.45.5)")
-Native Vala compiler: valac (valac 0.42.5)
+Native C compiler: cc (gcc 7.3.0 "cc (Ubuntu 7.3.0-27ubuntu1~18.04) 7.3.0")
+Native Vala compiler: valac (valac 0.40.13)
 Build machine cpu family: x86_64
 Build machine cpu: x86_64
 Dependency gtk+-3.0 found: YES (cached)
-Program meson/post_install.py found: YES (/usr/bin/env python3 /Users/salomonmay/Desktop/vala_test/meson/post_install.py)
+Program meson/post_install.py found: YES (/usr/bin/env python3 /home/salomonmay/Documents/Vala_Todo_App/meson/post_install.py)
 Build targets in project: 1
-Found ninja-1.8.2 at /usr/local/bin/ninja
+Found ninja-1.8.2 at /usr/bin/ninja
 Running compile:
-Working directory:  /var/folders/rp/n452jxhs3k1gw92324f7ygnc0000gn/T/tmp44vnnb2o
-Command line:  cc -I/usr/local/opt/icu4c/include /var/folders/rp/n452jxhs3k1gw92324f7ygnc0000gn/T/tmp44vnnb2o/testfile.c -pipe -c -o /var/folders/rp/n452jxhs3k1gw92324f7ygnc0000gn/T/tmp44vnnb2o/output.obj -O0 --print-search-dirs 
+Working directory:  /tmp/tmpe9u2lkzo
+Command line:  cc /tmp/tmpe9u2lkzo/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpe9u2lkzo/output.obj -O0 --print-search-dirs 
 
 Code:
  
 Compiler stdout:
- programs: =/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
-libraries: =/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0
+ install: /usr/lib/gcc/x86_64-linux-gnu/7/
+programs: =/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../x86_64-linux-gnu/bin/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../x86_64-linux-gnu/bin/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../x86_64-linux-gnu/bin/
+libraries: =/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../x86_64-linux-gnu/lib/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../x86_64-linux-gnu/lib/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../x86_64-linux-gnu/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/7/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/7/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../x86_64-linux-gnu/lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/
 
 Compiler stderr:
  

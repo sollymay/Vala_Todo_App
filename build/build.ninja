@@ -6,10 +6,6 @@ ninja_required_version = 1.5.1
 
 # Rules for compiling.
 
-rule llvm_ir_COMPILER
- command = cc $ARGS  -o $out -c $in
- description = Compiling LLVM IR object $in.
-
 rule c_COMPILER
  command = cc $ARGS  -MD -MQ $out -MF '$DEPFILE' -o $out -c $in
  deps = gcc
@@ -31,7 +27,7 @@ rule vala_COMPILER
 # Rules for linking.
 
 rule STATIC_LINKER
- command =  rm -f $out && ar $LINK_ARGS $out $in
+ command =  rm -f $out && gcc-ar $LINK_ARGS $out $in
  description = Linking static target $out.
 
 rule c_LINKER
@@ -40,7 +36,7 @@ rule c_LINKER
 
 
 rule SHSYM
- command = /usr/local/bin/meson --internal symbolextractor $in $out $CROSS
+ command = /usr/bin/meson --internal symbolextractor $in $out $CROSS
  restat = 1
  description = Generating symbol file $out.
 
@@ -59,7 +55,7 @@ rule CUSTOM_COMMAND_DEP
  restat = 1
 
 rule REGENERATE_BUILD
- command = /usr/local/bin/meson --internal regenerate /Users/salomonmay/Desktop/vala_test /Users/salomonmay/Desktop/vala_test/build --backend ninja
+ command = /usr/bin/meson --internal regenerate /home/salomonmay/Documents/Vala_Todo_App /home/salomonmay/Documents/Vala_Todo_App/build --backend ninja
  description = Regenerating build files.
  generator = 1
 
@@ -69,35 +65,35 @@ build PHONY: phony
 
 # Build rules for targets
 
-build src/25a6634@@com.github.sollymay.jarvis@exe/Main.c src/25a6634@@com.github.sollymay.jarvis@exe/Widgets/Window.c src/25a6634@@com.github.sollymay.jarvis@exe/Application.c: vala_COMPILER ../src/Main.vala ../src/Widgets/Window.vala ../src/Application.vala
- ARGS = -C --debug --debug --pkg gtk+-3.0 --color=always --directory src/25a6634@@com.github.sollymay.jarvis@exe --basedir ../src
+build src/src@@com.github.sollymay.jarvis@exe/Main.c src/src@@com.github.sollymay.jarvis@exe/Widgets/Window.c src/src@@com.github.sollymay.jarvis@exe/Application.c: vala_COMPILER ../src/Main.vala ../src/Widgets/Window.vala ../src/Application.vala
+ ARGS = -C --debug --debug --pkg gtk+-3.0 --color=always --directory src/src@@com.github.sollymay.jarvis@exe --basedir ../src
 
-build src/25a6634@@com.github.sollymay.jarvis@exe/meson-generated_Main.c.o: c_COMPILER src/25a6634@@com.github.sollymay.jarvis@exe/Main.c
- DEPFILE = src/25a6634@@com.github.sollymay.jarvis@exe/meson-generated_Main.c.o.d
- ARGS = -Isrc/25a6634@@com.github.sollymay.jarvis@exe -Isrc -I../src -I/usr/local/Cellar/gtk+3/3.24.4/include/gtk-3.0 -I/usr/local/Cellar/glib/2.58.3/include/gio-unix-2.0/ -I/usr/local/Cellar/libepoxy/1.5.3/include -I/usr/local/Cellar/harfbuzz/2.3.0/include/harfbuzz -I/usr/local/Cellar/graphite2/1.3.13/include -I/usr/local/Cellar/pango/1.42.4_1/include/pango-1.0 -I/usr/local/Cellar/fribidi/1.0.5/include/fribidi -I/usr/local/Cellar/atk/2.30.0/include/atk-1.0 -I/usr/local/Cellar/cairo/1.16.0/include/cairo -I/usr/local/Cellar/pixman/0.36.0/include/pixman-1 -I/usr/local/Cellar/fontconfig/2.13.1/include -I/usr/local/opt/freetype/include/freetype2 -I/usr/local/Cellar/libpng/1.6.36/include/libpng16 -I/usr/local/Cellar/gdk-pixbuf/2.38.0/include/gdk-pixbuf-2.0 -I/usr/local/Cellar/glib/2.58.3/include/glib-2.0 -I/usr/local/Cellar/glib/2.58.3/lib/glib-2.0/include -I/usr/local/opt/gettext/include -I/usr/local/Cellar/pcre/8.42/include -I/usr/local/opt/icu4c/include -Xclang -fcolor-diagnostics -pipe -w -g -D_REENTRANT
+build src/src@@com.github.sollymay.jarvis@exe/meson-generated_Main.c.o: c_COMPILER src/src@@com.github.sollymay.jarvis@exe/Main.c
+ DEPFILE = src/src@@com.github.sollymay.jarvis@exe/meson-generated_Main.c.o.d
+ ARGS = -Isrc/src@@com.github.sollymay.jarvis@exe -Isrc -I../src -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -w -g -pthread
 
-build src/25a6634@@com.github.sollymay.jarvis@exe/meson-generated_Widgets_Window.c.o: c_COMPILER src/25a6634@@com.github.sollymay.jarvis@exe/Widgets/Window.c
- DEPFILE = src/25a6634@@com.github.sollymay.jarvis@exe/meson-generated_Widgets_Window.c.o.d
- ARGS = -Isrc/25a6634@@com.github.sollymay.jarvis@exe -Isrc -I../src -I/usr/local/Cellar/gtk+3/3.24.4/include/gtk-3.0 -I/usr/local/Cellar/glib/2.58.3/include/gio-unix-2.0/ -I/usr/local/Cellar/libepoxy/1.5.3/include -I/usr/local/Cellar/harfbuzz/2.3.0/include/harfbuzz -I/usr/local/Cellar/graphite2/1.3.13/include -I/usr/local/Cellar/pango/1.42.4_1/include/pango-1.0 -I/usr/local/Cellar/fribidi/1.0.5/include/fribidi -I/usr/local/Cellar/atk/2.30.0/include/atk-1.0 -I/usr/local/Cellar/cairo/1.16.0/include/cairo -I/usr/local/Cellar/pixman/0.36.0/include/pixman-1 -I/usr/local/Cellar/fontconfig/2.13.1/include -I/usr/local/opt/freetype/include/freetype2 -I/usr/local/Cellar/libpng/1.6.36/include/libpng16 -I/usr/local/Cellar/gdk-pixbuf/2.38.0/include/gdk-pixbuf-2.0 -I/usr/local/Cellar/glib/2.58.3/include/glib-2.0 -I/usr/local/Cellar/glib/2.58.3/lib/glib-2.0/include -I/usr/local/opt/gettext/include -I/usr/local/Cellar/pcre/8.42/include -I/usr/local/opt/icu4c/include -Xclang -fcolor-diagnostics -pipe -w -g -D_REENTRANT
+build src/src@@com.github.sollymay.jarvis@exe/meson-generated_Widgets_Window.c.o: c_COMPILER src/src@@com.github.sollymay.jarvis@exe/Widgets/Window.c
+ DEPFILE = src/src@@com.github.sollymay.jarvis@exe/meson-generated_Widgets_Window.c.o.d
+ ARGS = -Isrc/src@@com.github.sollymay.jarvis@exe -Isrc -I../src -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -w -g -pthread
 
-build src/25a6634@@com.github.sollymay.jarvis@exe/meson-generated_Application.c.o: c_COMPILER src/25a6634@@com.github.sollymay.jarvis@exe/Application.c
- DEPFILE = src/25a6634@@com.github.sollymay.jarvis@exe/meson-generated_Application.c.o.d
- ARGS = -Isrc/25a6634@@com.github.sollymay.jarvis@exe -Isrc -I../src -I/usr/local/Cellar/gtk+3/3.24.4/include/gtk-3.0 -I/usr/local/Cellar/glib/2.58.3/include/gio-unix-2.0/ -I/usr/local/Cellar/libepoxy/1.5.3/include -I/usr/local/Cellar/harfbuzz/2.3.0/include/harfbuzz -I/usr/local/Cellar/graphite2/1.3.13/include -I/usr/local/Cellar/pango/1.42.4_1/include/pango-1.0 -I/usr/local/Cellar/fribidi/1.0.5/include/fribidi -I/usr/local/Cellar/atk/2.30.0/include/atk-1.0 -I/usr/local/Cellar/cairo/1.16.0/include/cairo -I/usr/local/Cellar/pixman/0.36.0/include/pixman-1 -I/usr/local/Cellar/fontconfig/2.13.1/include -I/usr/local/opt/freetype/include/freetype2 -I/usr/local/Cellar/libpng/1.6.36/include/libpng16 -I/usr/local/Cellar/gdk-pixbuf/2.38.0/include/gdk-pixbuf-2.0 -I/usr/local/Cellar/glib/2.58.3/include/glib-2.0 -I/usr/local/Cellar/glib/2.58.3/lib/glib-2.0/include -I/usr/local/opt/gettext/include -I/usr/local/Cellar/pcre/8.42/include -I/usr/local/opt/icu4c/include -Xclang -fcolor-diagnostics -pipe -w -g -D_REENTRANT
+build src/src@@com.github.sollymay.jarvis@exe/meson-generated_Application.c.o: c_COMPILER src/src@@com.github.sollymay.jarvis@exe/Application.c
+ DEPFILE = src/src@@com.github.sollymay.jarvis@exe/meson-generated_Application.c.o.d
+ ARGS = -Isrc/src@@com.github.sollymay.jarvis@exe -Isrc -I../src -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -w -g -pthread
 
-build src/com.github.sollymay.jarvis: c_LINKER src/25a6634@@com.github.sollymay.jarvis@exe/meson-generated_Main.c.o src/25a6634@@com.github.sollymay.jarvis@exe/meson-generated_Widgets_Window.c.o src/25a6634@@com.github.sollymay.jarvis@exe/meson-generated_Application.c.o | /usr/local/Cellar/gtk+3/3.24.4/lib/libgtk-3.dylib /usr/local/Cellar/gtk+3/3.24.4/lib/libgdk-3.dylib /usr/local/Cellar/pango/1.42.4_1/lib/libpangocairo-1.0.dylib /usr/local/Cellar/pango/1.42.4_1/lib/libpango-1.0.dylib /usr/local/Cellar/atk/2.30.0/lib/libatk-1.0.dylib /usr/local/Cellar/cairo/1.16.0/lib/libcairo-gobject.dylib /usr/local/Cellar/cairo/1.16.0/lib/libcairo.dylib /usr/local/Cellar/gdk-pixbuf/2.38.0/lib/libgdk_pixbuf-2.0.dylib /usr/local/Cellar/glib/2.58.3/lib/libgio-2.0.dylib /usr/local/Cellar/glib/2.58.3/lib/libgobject-2.0.dylib /usr/local/Cellar/glib/2.58.3/lib/libglib-2.0.dylib /usr/local/opt/gettext/lib/libintl.dylib
- LINK_ARGS = -L/usr/local/opt/icu4c/lib -Wl,-dead_strip_dylibs -Wl,-headerpad_max_install_names /usr/local/Cellar/gtk+3/3.24.4/lib/libgtk-3.dylib /usr/local/Cellar/gtk+3/3.24.4/lib/libgdk-3.dylib /usr/local/Cellar/pango/1.42.4_1/lib/libpangocairo-1.0.dylib /usr/local/Cellar/pango/1.42.4_1/lib/libpango-1.0.dylib /usr/local/Cellar/atk/2.30.0/lib/libatk-1.0.dylib /usr/local/Cellar/cairo/1.16.0/lib/libcairo-gobject.dylib /usr/local/Cellar/cairo/1.16.0/lib/libcairo.dylib /usr/local/Cellar/gdk-pixbuf/2.38.0/lib/libgdk_pixbuf-2.0.dylib /usr/local/Cellar/glib/2.58.3/lib/libgio-2.0.dylib /usr/local/Cellar/glib/2.58.3/lib/libgobject-2.0.dylib /usr/local/Cellar/glib/2.58.3/lib/libglib-2.0.dylib /usr/local/opt/gettext/lib/libintl.dylib -Wl,-framework -Wl,CoreFoundation
+build src/com.github.sollymay.jarvis: c_LINKER src/src@@com.github.sollymay.jarvis@exe/meson-generated_Main.c.o src/src@@com.github.sollymay.jarvis@exe/meson-generated_Widgets_Window.c.o src/src@@com.github.sollymay.jarvis@exe/meson-generated_Application.c.o | /usr/lib/x86_64-linux-gnu/libgtk-3.so /usr/lib/x86_64-linux-gnu/libgdk-3.so /usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so /usr/lib/x86_64-linux-gnu/libpango-1.0.so /usr/lib/x86_64-linux-gnu/libatk-1.0.so /usr/lib/x86_64-linux-gnu/libcairo-gobject.so /usr/lib/x86_64-linux-gnu/libcairo.so /usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so /usr/lib/x86_64-linux-gnu/libgio-2.0.so /usr/lib/x86_64-linux-gnu/libgobject-2.0.so /usr/lib/x86_64-linux-gnu/libglib-2.0.so
+ LINK_ARGS = -Wl,--no-undefined -Wl,--as-needed -Wl,--start-group /usr/lib/x86_64-linux-gnu/libgtk-3.so /usr/lib/x86_64-linux-gnu/libgdk-3.so /usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so /usr/lib/x86_64-linux-gnu/libpango-1.0.so /usr/lib/x86_64-linux-gnu/libatk-1.0.so /usr/lib/x86_64-linux-gnu/libcairo-gobject.so /usr/lib/x86_64-linux-gnu/libcairo.so /usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so /usr/lib/x86_64-linux-gnu/libgio-2.0.so /usr/lib/x86_64-linux-gnu/libgobject-2.0.so /usr/lib/x86_64-linux-gnu/libglib-2.0.so -Wl,--end-group
 
 # Test rules
 
 build meson-test: CUSTOM_COMMAND all PHONY
- COMMAND = /usr/local/bin/meson test --no-rebuild --print-errorlogs
+ COMMAND = /usr/bin/meson test --no-rebuild --print-errorlogs
  DESC = Running$ all$ tests.
  pool = console
 
 build test: phony meson-test
 
 build meson-benchmark: CUSTOM_COMMAND all PHONY
- COMMAND = /usr/local/bin/meson test --benchmark --logbase benchmarklog --num-processes=1 --no-rebuild
+ COMMAND = /usr/bin/meson test --benchmark --logbase benchmarklog --num-processes=1 --no-rebuild
  DESC = Running$ benchmark$ suite.
  pool = console
 
@@ -107,14 +103,14 @@ build benchmark: phony meson-benchmark
 
 build meson-install: CUSTOM_COMMAND PHONY | all
  DESC = Installing$ files.
- COMMAND = /usr/local/bin/meson install --no-rebuild
+ COMMAND = /usr/bin/meson install --no-rebuild
  pool = console
 
 build install: phony meson-install
 
 build meson-dist: CUSTOM_COMMAND PHONY
  DESC = Creating$ source$ packages
- COMMAND = /usr/local/bin/meson --internal dist /Users/salomonmay/Desktop/vala_test /Users/salomonmay/Desktop/vala_test/build /usr/local/bin/meson
+ COMMAND = /usr/bin/meson --internal dist /home/salomonmay/Documents/Vala_Todo_App /home/salomonmay/Documents/Vala_Todo_App/build /usr/bin/meson
  pool = console
 
 build dist: phony meson-dist
@@ -122,13 +118,13 @@ build dist: phony meson-dist
 # Suffix
 
 build meson-scan-build: CUSTOM_COMMAND PHONY
- COMMAND = /usr/local/bin/meson --internal scanbuild /Users/salomonmay/Desktop/vala_test /Users/salomonmay/Desktop/vala_test/build /usr/local/bin/meson
+ COMMAND = /usr/bin/meson --internal scanbuild /home/salomonmay/Documents/Vala_Todo_App /home/salomonmay/Documents/Vala_Todo_App/build /usr/bin/meson
  pool = console
 
 build scan-build: phony meson-scan-build
 
 build meson-uninstall: CUSTOM_COMMAND PHONY
- COMMAND = /usr/local/bin/meson --internal uninstall
+ COMMAND = /usr/bin/meson --internal uninstall
  pool = console
 
 build uninstall: phony meson-uninstall
