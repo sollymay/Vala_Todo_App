@@ -1,7 +1,7 @@
 [
   {
     "directory": "/home/salomonmay/Documents/Vala_Todo_App/build",
-    "command": "valac -C --debug --debug --pkg gtk+-3.0 --color=always --directory src/src@@com.github.sollymay.jarvis@exe --basedir ../src ../src/Main.vala ../src/Widgets/Window.vala ../src/Application.vala",
+    "command": "valac -C --debug --debug --pkg gtk+-3.0 --color=always --directory src/src@@com.github.sollymay.jarvis@exe --basedir ../src ../src/Main.vala ../src/Widgets/Window.vala ../src/Application.vala ../src/Widgets/HeaderBar.vala",
     "file": "../src/Main.vala"
   },
   {
@@ -18,5 +18,10 @@
     "directory": "/home/salomonmay/Documents/Vala_Todo_App/build",
     "command": "cc -Isrc/src@@com.github.sollymay.jarvis@exe -Isrc -I../src -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -w -g -pthread  -MD -MQ 'src/src@@com.github.sollymay.jarvis@exe/meson-generated_Application.c.o' -MF 'src/src@@com.github.sollymay.jarvis@exe/meson-generated_Application.c.o.d' -o 'src/src@@com.github.sollymay.jarvis@exe/meson-generated_Application.c.o' -c 'src/src@@com.github.sollymay.jarvis@exe/Application.c'",
     "file": "src/src@@com.github.sollymay.jarvis@exe/Application.c"
+  },
+  {
+    "directory": "/home/salomonmay/Documents/Vala_Todo_App/build",
+    "command": "cc -Isrc/src@@com.github.sollymay.jarvis@exe -Isrc -I../src -I/usr/include/at-spi2-atk/2.0 -I/usr/include/at-spi-2.0 -I/usr/include/dbus-1.0 -I/usr/lib/x86_64-linux-gnu/dbus-1.0/include -I/usr/include/gtk-3.0 -I/usr/include/gio-unix-2.0/ -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -w -g -pthread  -MD -MQ 'src/src@@com.github.sollymay.jarvis@exe/meson-generated_Widgets_HeaderBar.c.o' -MF 'src/src@@com.github.sollymay.jarvis@exe/meson-generated_Widgets_HeaderBar.c.o.d' -o 'src/src@@com.github.sollymay.jarvis@exe/meson-generated_Widgets_HeaderBar.c.o' -c 'src/src@@com.github.sollymay.jarvis@exe/Widgets/HeaderBar.c'",
+    "file": "src/src@@com.github.sollymay.jarvis@exe/Widgets/HeaderBar.c"
   }
 ]

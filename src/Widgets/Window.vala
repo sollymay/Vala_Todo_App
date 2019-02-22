@@ -11,7 +11,7 @@ public class Jarvis.Window : Gtk.ApplicationWindow {
     }
 
     construct {
-        title = "This is my Vala Test";
+        //  title = "This is my Vala Test";
         window_position = Gtk.WindowPosition.CENTER;
         set_default_size (800, 600);
 
@@ -22,6 +22,9 @@ public class Jarvis.Window : Gtk.ApplicationWindow {
         delete_event.connect (e => {
             return before_destroy ();
         });
+
+        var headerbar = new Jarvis.HeaderBar();
+        set_titlebar (headerbar);
         show_all ();
     }
     // this method is a custom method we use to intercept the destroy signal (do something before the app is closed)
