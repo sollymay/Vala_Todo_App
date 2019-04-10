@@ -1,9 +1,8 @@
 public class Jarvis.HeaderBar : Gtk.HeaderBar {
     construct {
-        set_title("Todo App");
-        set_subtitle("Because remininding is not enough");
-        // set title
-        // set subtitle
+
+        // set title removed since we will use a widget in that position instead
+        // set subtitle same as with title
         set_show_close_button(true);
         // add button
         // adding the _() around a text, makes it translatable
@@ -17,6 +16,21 @@ public class Jarvis.HeaderBar : Gtk.HeaderBar {
         // add icon button --> submenu (popup menu)
         var menu_button = new Gtk.Button.from_icon_name("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
         menu_button.valign = Gtk.Align.CENTER;
+
+        var stack_switcher = new Gtk.StackSwitcher ();
+        var stack = new Gtk.Stack ();
+        stack_switcher.stack = stack;
+
+        // creating the two Grids (views on top)
+        var outstanding = new Gtk.Grid();
+        outstanding.add (new Gtk.Label("Outstanding Page"));
+        var completed = new Gtk.Grid();
+        completed.add (new Gtk.Label("Complete Page"));
+
+        stack.add_titled(outstanding, "outstanding", "Outstanding");
+        stack.add_titled(completed, "completed", "Completed");
+
+        set_custom_title (stack_switcher);
         pack_end (menu_button);
     }
 }
